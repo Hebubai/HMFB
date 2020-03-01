@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>monster</groupId>
 	<artifactId>hebubai</artifactId>
+	<name>CXK</name>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
-	<name>hebubai</name>
 	<url>https://github.com/Hebubai</url>
 
 	<!-- 此处指定编码为UTF-8、运行库为JDK-11 -->
