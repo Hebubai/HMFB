@@ -41,7 +41,7 @@ public class Client {
 			writer.write(s);
 			writer.newLine();
 			writer.flush();
-			System.out.println("---------Done!---------");
+			System.out.println("---------Sent!---------");
 			String resp = reader.readLine();
 			System.out.println("[Server] " + resp);
 			if (resp.equals("bye")) {
