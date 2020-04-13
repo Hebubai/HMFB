@@ -14,10 +14,10 @@ import java.util.Scanner;
 
 public class Client {
 	public static void main(String[] args) throws IOException {
-		Socket sock=null;
+		Socket sock = null;
 		try {
-		sock = new Socket("localhost", 39001);}
-		catch(IOException e) {
+			sock = new Socket("localhost", 39008);
+		} catch (IOException e) {
 			System.out.println("Connect failed.Please check IP/ports or Start the Server");
 			throw e;
 		}

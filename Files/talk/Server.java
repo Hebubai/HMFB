@@ -14,18 +14,17 @@ import java.util.Scanner;
 
 public class Server {
 	public static void main(String[] args) throws IOException {
-		ServerSocket ss=null;
+		ServerSocket ss = null;
 		try {
-		ss= new ServerSocket(39008);}
-		catch(IOException e) {
+			ss = new ServerSocket(39008);
+		} catch (IOException e) {
 			System.out.println("Please change the ports");
 		}
 		System.out.println("---Server is running---");
 		System.out.println("---Waitting Client/s---");
-		System.out.println();
 		for (;;) {
 			Socket sock = ss.accept();
-			System.out.println(sock.getRemoteSocketAddress()+" online!!!");
+			System.out.println(sock.getRemoteSocketAddress() + " online!!!");
 			Thread t = new Handler(sock);
 			t.start();
 		}
@@ -50,7 +49,6 @@ class Handler extends Thread {
 				this.sock.close();
 			} catch (IOException ioe) {
 			}
-			//System.out.println("client disconnected.");
 		}
 	}
 
@@ -63,9 +61,10 @@ class Handler extends Thread {
 		for (;;) {
 			String s = reader.readLine();
 			if (s.equals("bye")) {
-				writer.write("bye\n");
+				writer.write("bye");
+				writer.newLine();
 				writer.flush();
-				System.out.println(sock.getRemoteSocketAddress()+" offline!!!");
+				System.out.println(sock.getRemoteSocketAddress() + " offline!!!");
 				System.out.println("---Waitting Client/s---");
 				break;
 			}
