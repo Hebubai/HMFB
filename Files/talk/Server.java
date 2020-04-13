@@ -45,7 +45,7 @@ class Handler extends Thread {
 			OutputStream output = this.sock.getOutputStream();
 			handle(input, output);
 		} catch (Exception e) {
-			System.out.println(sock.getRemoteSocketAddress()+" offline !!!");
+			System.out.println(sock.getRemoteSocketAddress() + " offline !!!");
 			try {
 				this.sock.close();
 			} catch (IOException ioe) {
