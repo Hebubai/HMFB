@@ -40,11 +40,12 @@ class Handler extends Thread {
 
 	@Override
 	public void run() {
-		try (InputStream input = this.sock.getInputStream()) {
-			try (OutputStream output = this.sock.getOutputStream()) {
-				handle(input, output);
-			}
+		try {
+			InputStream input = this.sock.getInputStream();
+			OutputStream output = this.sock.getOutputStream();
+			handle(input, output);
 		} catch (Exception e) {
+			System.out.println(sock.getRemoteSocketAddress()+" offline !!!");
 			try {
 				this.sock.close();
 			} catch (IOException ioe) {
@@ -56,8 +57,6 @@ class Handler extends Thread {
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output, StandardCharsets.UTF_8));
 		BufferedReader reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 		Scanner scanner = new Scanner(System.in);
-		// writer.write("hello\n");
-		// writer.flush();
 		for (;;) {
 			String s = reader.readLine();
 			if (s.equals("bye")) {

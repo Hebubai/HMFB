@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.ConnectException;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -17,31 +16,34 @@ public class Client {
 		Socket sock = null;
 		try {
 			sock = new Socket("localhost", 39008);
-		} catch (IOException e) {
+		} catch (IOException ioe) {
 			System.out.println("Connect failed.Please check IP/ports or Start the Server");
-			throw e;
+			throw ioe;
 		}
-		try (InputStream input = sock.getInputStream()) {
-			try (OutputStream output = sock.getOutputStream()) {
-				System.out.println("[Server-IP] " + sock.getRemoteSocketAddress());
-				handle(input, output);
-			}
+		try {
+			InputStream input = sock.getInputStream();
+			OutputStream output = sock.getOutputStream();
+			System.out.println("[Server] " + sock.getRemoteSocketAddress());
+			handle(input, output);
+		} catch (Exception re) {
+			System.out.println("!!! Server offline !!!");
+		} finally {
+			sock.close();
+			System.out.println("---------Exit!---------");
 		}
-		sock.close();
-		System.out.println("---Disconnected---");
 	}
 
 	private static void handle(InputStream input, OutputStream output) throws IOException {
 		var writer = new BufferedWriter(new OutputStreamWriter(output, StandardCharsets.UTF_8));
 		var reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
 		Scanner scanner = new Scanner(System.in);
-		// System.out.println("[server] " + reader.readLine());
 		for (;;) {
-			System.out.print("[Your] ");
+			System.out.print("[You] ");
 			String s = scanner.nextLine();
 			writer.write(s);
 			writer.newLine();
 			writer.flush();
+			System.out.println("---------Done!---------");
 			String resp = reader.readLine();
 			System.out.println("[Server] " + resp);
 			if (resp.equals("bye")) {
