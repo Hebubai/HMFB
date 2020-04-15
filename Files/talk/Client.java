@@ -13,17 +13,16 @@ public class Client {
 	public static void main(String[] args) throws IOException {
 		Socket sock = null;
 		try {
-			sock = new Socket("localhost", 39008);
+			sock = new Socket("hebubai.monster", 39008);
 		} catch (IOException ioe) {
 			System.out.println("Connect failed.Please check IP/ports or Start the Server");
-			throw ioe;
 		}
 		try {
 			InputStream input = sock.getInputStream();
 			OutputStream output = sock.getOutputStream();
 			System.out.println("[Server] " + sock.getRemoteSocketAddress());
 			handle(input, output);
-		} catch (Exception re) {
+		} catch (RuntimeException re) {
 			System.out.println("!!! Server offline !!!");
 		} finally {
 			sock.close();
