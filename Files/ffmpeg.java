@@ -1,5 +1,3 @@
-package tcp;
-
 import java.io.*;
 
 public class ffmpeg {
