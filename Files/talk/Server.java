@@ -10,6 +10,11 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author zhang
+ *
+ */
 public class Server {
 	public static void main(String[] args) throws IOException {
 		ServerSocket ss = null;
@@ -57,7 +62,7 @@ class Handler extends Thread {
 		Scanner scanner = new Scanner(System.in);
 		for (;;) {
 			String s = reader.readLine();
-			if (s.equals("bye")) {
+			if ("bye".equals(s)) {
 				writer.write("bye");
 				writer.newLine();
 				writer.flush();

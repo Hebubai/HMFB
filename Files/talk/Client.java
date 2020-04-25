@@ -9,6 +9,11 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author zhang
+ *
+ */
 public class Client {
 	public static void main(String[] args) throws IOException {
 		Socket sock = null;
@@ -43,7 +48,7 @@ public class Client {
 			System.out.println("---------Sent!---------");
 			String resp = reader.readLine();
 			System.out.println("[Server] " + resp);
-			if (resp.equals("bye")) {
+			if ("bye".equals(resp)) {
 				break;
 			}
 		}
