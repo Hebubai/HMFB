@@ -7,11 +7,11 @@ import java.io.*;
  *
  */
 public class JavaFfmpeg {
-	final static String FOLD_PATH = "/Users/zhang/Movies/";
-	final static String FFMPEG_COMMAND = "/Users/zhang/ffmpeg/bin/ffmpeg -i ";
+	final static String FOLD_PATH = "/Users/zhang/Downloads/";
+	final static String FFMPEG_COMMAND = "/Users/zhang/ffmpeg/bin/ffmpeg -i ";//-threads 4
 	final static String CODE_COMMAND = " -vcodec copy -acodec copy ";
 	final static String OUTPUT_PATH = "";
-	final static String EXT_NAME = ".avi";
+	final static String EXT_NAME = ".mp4";
 	static int number = 0;
 
 	public static void main(String[] args) throws IOException {
@@ -26,10 +26,8 @@ public class JavaFfmpeg {
 		for (File f : fold) {
 			if (f.isDirectory()) {
 				codeVideos(f.toString());
-			} else if (!f.toString().equals(FOLD_PATH + ".DS_Store")
-					&& !f.toString().equals(FOLD_PATH + ".localized")) {
-				final String command = FFMPEG_COMMAND + f.toString() + CODE_COMMAND + OUTPUT_PATH
-						+ getName(f.toString());
+			} else if (!f.toString().equals(FOLD_PATH + ".DS_Store") && !f.toString().equals(FOLD_PATH + ".localized")) {
+				final String command = FFMPEG_COMMAND + f.toString() + CODE_COMMAND + OUTPUT_PATH + getName(f.toString());
 				new File(OUTPUT_PATH).mkdirs();
 				Runtime.getRuntime().exec(command);
 				System.out.println(f.toString());
