@@ -26,7 +26,7 @@ public class JavaFfmpeg {
 		for (File f : fold) {
 			if (f.isDirectory()) {
 				codeVideos(f.toString());
-			} else if (!f.toString().equals(FOLD_PATH + ".DS_Store") && !f.toString().equals(FOLD_PATH + ".localized")) {
+			} else if (!f.toString().equals(FOLD_PATH + ".DS_Store") && !f.toString().equals(FOLD_PATH + ".localized") && !f.toString().equals(FOLD_PATH + "desktop.ini")) {
 				final String command = FFMPEG_COMMAND + f.toString() + CODE_COMMAND + OUTPUT_PATH + getName(f.toString());
 				new File(OUTPUT_PATH).mkdirs();
 				Runtime.getRuntime().exec(command);
