@@ -1,4 +1,7 @@
-import java.io.*;
+package ffmpeg;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * 
@@ -6,9 +9,9 @@ import java.io.*;
  * @date 2020/4/25
  *
  */
-public class JavaFfmpeg {
-	final static String FOLD_PATH = "/Users/zhang/Downloads/";
-	final static String FFMPEG_COMMAND = "/Users/zhang/ffmpeg/bin/ffmpeg -i ";//-threads 4
+public class ReCodeVideos {
+	final static String FOLD_PATH = "D:\\Zhang\\Downloads\\";
+	final static String FFMPEG_COMMAND = "D:\\AppNoInstall\\ffmpeg\\bin\\ffmpeg -i ";// -threads 4
 	final static String CODE_COMMAND = " -vcodec copy -acodec copy ";
 	final static String OUTPUT_PATH = "";
 	final static String EXT_NAME = ".mp4";
@@ -44,7 +47,7 @@ public class JavaFfmpeg {
 				return filename.substring(0, end) + EXT_NAME;
 			}
 		} else if ((filename != null) && (filename.length() > 0)) {
-			start = filename.lastIndexOf('/');
+			start = filename.lastIndexOf('\\');
 			end = filename.indexOf('.');
 			if ((start > -1) && (start < (filename.length())) && (end > -1) && (end < (filename.length()))) {
 				return filename.substring(start, end) + EXT_NAME;
