@@ -17,14 +17,14 @@ public class ReCodeVideos {
 	final static String EXT_NAME = ".mp4";
 	static int number = 0;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		long startTime = System.currentTimeMillis();
 		codeVideos(FOLD_PATH);
 		double usedTime = (double) (System.currentTimeMillis() - startTime) / 1000;
 		System.out.println("耗时：" + usedTime + " 秒。文件与文件夹一共" + number + "个。");
 	}
 
-	public static void codeVideos(String path) throws IOException {
+	public static void codeVideos(String path) throws IOException, InterruptedException {
 		File[] fold = new File(path).listFiles();
 		for (File f : fold) {
 			if (f.isDirectory()) {
@@ -34,6 +34,7 @@ public class ReCodeVideos {
 				new File(OUTPUT_PATH).mkdirs();
 				Runtime.getRuntime().exec(command);
 				System.out.println(f.toString());
+				Thread.sleep(10 * 1000);
 			}
 		}
 	}
