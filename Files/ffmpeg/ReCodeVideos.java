@@ -34,7 +34,7 @@ public class ReCodeVideos {
 				new File(OUTPUT_PATH).mkdirs();
 				Runtime.getRuntime().exec(command);
 				System.out.println(f.toString());
-				Thread.sleep(10 * 1000);
+				Thread.sleep((f.length() / 52428800) * 1000);
 			}
 		}
 	}
