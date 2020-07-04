@@ -1,5 +1,3 @@
-package ffmpeg;
-
 import java.io.File;
 import java.io.IOException;
 
