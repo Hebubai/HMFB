@@ -31,7 +31,7 @@ public class ReCodeVideos {
 				final String command = FFMPEG_COMMAND + f.toString() + CODE_COMMAND + OUTPUT_PATH + getName(f.toString());
 				new File(OUTPUT_PATH).mkdirs();
 				Runtime.getRuntime().exec(command);
-				System.out.println(f.toString());
+				System.out.println(getName(f.toString()));
 				Thread.sleep((f.length() / 52428800) * 1000);
 			}
 		}
