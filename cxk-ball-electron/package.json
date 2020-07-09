@@ -35,6 +35,7 @@
   "author": "Hebubai",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "9.1.0"
+    "electron": "9.1.0",
+    "electron-builder":"22.7.0"
   }
 }
