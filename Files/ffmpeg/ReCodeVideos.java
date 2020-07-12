@@ -33,12 +33,12 @@ public class ReCodeVideos {
 				Runtime.getRuntime().exec(command);
 				System.out.println(getName(f.toString()));
 				Thread.sleep((f.length() / 52428800) * 1000);
+				number += 1;
 			}
 		}
 	}
 
 	public static String getName(String filename) {
-		number += 1;
 		int start, end;
 		if ("".equals(OUTPUT_PATH)) {
 			end = filename.indexOf('.');
