@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class ReCodeVideos {
 	final static String FOLD_PATH = "D:\\Zhang\\Downloads\\";
-	final static String FFMPEG_COMMAND = "D:\\AppNoInstall\\ffmpeg\\bin\\ffmpeg -i ";// -threads 4
+	final static String FFMPEG_COMMAND = "D:\\App\\ffmpeg\\bin\\ffmpeg -i ";// -threads 4
 	final static String CODE_COMMAND = " -vcodec copy -acodec copy ";
 	final static String OUTPUT_PATH = "";
 	final static String EXT_NAME = ".mp4";
