@@ -1,5 +1,5 @@
 # Hebubai_Main（原SaT）
-计算机专业大三学渣的瞎折腾的仓库
+计算机专业已毕业社畜瞎折腾的仓库
 
 # Thanks | 鸣谢
 Thanks to [JetBrains][JetBrains] for "Licenses for Open Source Development".  
